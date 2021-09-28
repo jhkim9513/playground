@@ -1,8 +1,8 @@
-// const promiseResolve = new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve("good");
-//   }, 2000);
-// });
+const promiseResolve = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("good");
+  }, 2000);
+});
 
 // console.log(promiseResolve); // Promise { <pending> }
 // promiseResolve.then((data) =>
@@ -15,7 +15,16 @@ const promiseReject = new Promise((resolve, reject) => {
   }, 2000);
 });
 
-console.log(promiseReject); // Promise { <pending> }
-promiseReject.then((data) =>
-  console.log(`data : ${data}, promiseReject : ${promiseReject}`)
-); // 2초뒤 UnhandledPromiseRejectionWarning: Error: error
+// console.log(promiseReject); // Promise { <pending> }
+// promiseReject.then((data) =>
+//   console.log(`data : ${data}, promiseReject : ${promiseReject}`)
+// ); // 2초뒤 UnhandledPromiseRejectionWarning: Error: error
+
+promiseResolve
+  .then((result) => {
+    console.log(result);
+  })
+  .catch(console.log)
+  .finally(() => {
+    console.log("end");
+  });
