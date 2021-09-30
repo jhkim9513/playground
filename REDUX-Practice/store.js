@@ -14,6 +14,11 @@ const addSubscriber = () => {
     type: ADD_SUBSCRIBER,
   };
 };
+const subtractSubscriber = () => {
+  return {
+    type: "SUBTRACT_SUBSCRIBER",
+  };
+};
 const addViewCount = () => {
   return {
     type: ADD_VIEWCOUNT,
@@ -30,6 +35,11 @@ const subscriberReducer = (state = subscriberState, action) => {
       return {
         ...state,
         subscribers: state.subscribers + 1,
+      };
+    case "SUBTRACT_SUBSCRIBER":
+      return {
+        ...state,
+        subscriber: state.subscribers - 1,
       };
     default:
       return state;
@@ -66,6 +76,6 @@ const store = createStore(rootReducer, applyMiddleware(logger));
 
 store.dispatch(addSubscriber());
 store.dispatch(addSubscriber());
-store.dispatch(addSubscriber());
+store.dispatch(subtractSubscriber());
 store.dispatch(addViewCount());
 store.dispatch(addViewCount());
