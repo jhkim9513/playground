@@ -27,4 +27,5 @@ promiseResolve
   .catch(console.log)
   .finally(() => {
     console.log("end");
+    console.log("test3");
   });
